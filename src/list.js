@@ -169,6 +169,21 @@ function List(id, options, values) {
         return found;
     };
 
+    /* Removes all objects from list. 
+    * Loops through the list and removes objects where
+    * property "valuename" === value
+    */
+    this.removeAll = function(value, options) {
+        var found = 0;
+        for (var i = 0, il = self.items.length; i < il; i++) {
+                templater.remove(self.items[i], options);
+                self.items.splice(i,1);
+                il--;
+                found++;
+        }
+        return found;
+    };
+
     /* Gets the objects in the list which 
     * property "valueName" === value
     */
